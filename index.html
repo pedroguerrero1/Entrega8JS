@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiosco - Inventario dinámico</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/main.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Kiosco · Inventario</h1>
+    <p id="resumen" class="resumen"></p>
+  </header>
+
+  <main class="contenedor">
+    <div id="mensaje" class="mensaje oculto" role="status"></div>
+
+    <section class="panel">
+      <h2>Agregar producto</h2>
+      <form id="form-producto" class="formulario">
+        <label>
+          Nombre
+          <input type="text" id="nombre" placeholder="Ej: Alfajor" autocomplete="off">
+        </label>
+        <label>
+          Precio ($)
+          <input type="number" id="precio" placeholder="Ej: 800" min="1">
+        </label>
+        <label>
+          Stock
+          <input type="number" id="stock" placeholder="Ej: 20" min="0">
+        </label>
+        <label>
+          Categoría
+          <select id="categoria">
+            <option value="Golosinas">Golosinas</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Snacks">Snacks</option>
+          </select>
+        </label>
+        <button type="submit" class="boton boton-principal">Agregar producto</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-cabecera">
+        <h2>Productos</h2>
+        <input type="search" id="buscador" class="buscador" placeholder="Buscar por nombre..." autocomplete="off">
+      </div>
+      <div id="lista-productos" class="grilla"></div>
+    </section>
+  </main>
+</body>
+</html>

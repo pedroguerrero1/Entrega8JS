@@ -1,0 +1,260 @@
+:root {
+  --color-fondo: #f3f7f6;
+  --color-primario: #0f766e;
+  --color-primario-oscuro: #0b5a54;
+  --color-acento: #f59e0b;
+  --color-texto: #1f2937;
+  --color-gris: #6b7280;
+  --color-borde: #d9e4e1;
+  --color-exito: #16a34a;
+  --color-error: #dc2626;
+  --color-aviso: #d97706;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+.encabezado {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-primario-oscuro));
+  color: #ffffff;
+  text-align: center;
+  padding: 28px 16px;
+}
+
+.encabezado h1 {
+  font-size: 2rem;
+}
+
+.resumen {
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.08);
+}
+
+.panel h2 {
+  color: var(--color-primario);
+  margin-bottom: 14px;
+}
+
+.panel-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.panel-cabecera h2 {
+  margin-bottom: 0;
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #ffffff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--color-primario);
+  border-color: transparent;
+}
+
+.buscador {
+  min-width: 220px;
+}
+
+.boton {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.boton:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.boton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.boton-principal {
+  background: var(--color-primario);
+  color: #ffffff;
+}
+
+.boton-principal:hover {
+  background: var(--color-primario-oscuro);
+}
+
+.boton-vender {
+  background: var(--color-acento);
+  color: #ffffff;
+}
+
+.boton-eliminar {
+  background: #fee2e2;
+  color: var(--color-error);
+}
+
+.mensaje {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  border-left: 6px solid;
+}
+
+.mensaje.exito {
+  background: #dcfce7;
+  color: #166534;
+  border-color: var(--color-exito);
+}
+
+.mensaje.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: var(--color-error);
+}
+
+.mensaje.aviso {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: var(--color-aviso);
+}
+
+.oculto {
+  display: none;
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tarjeta {
+  border: 1px solid var(--color-borde);
+  border-top: 5px solid var(--color-primario);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #ffffff;
+}
+
+.tarjeta h3 {
+  font-size: 1.1rem;
+}
+
+.etiqueta {
+  align-self: flex-start;
+  background: #ccfbf1;
+  color: var(--color-primario-oscuro);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.precio {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+.detalle {
+  color: var(--color-gris);
+  font-size: 0.9rem;
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.acciones .boton {
+  flex: 1;
+}
+
+.tarjeta.sin-stock {
+  border-top-color: var(--color-error);
+  background: #fff7f7;
+}
+
+.tarjeta.sin-stock .stock {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+.tarjeta.nuevo {
+  animation: resaltar 1.6s ease-out;
+}
+
+@keyframes resaltar {
+  0% {
+    background: #fde68a;
+    transform: scale(1.04);
+  }
+  100% {
+    background: #ffffff;
+    transform: scale(1);
+  }
+}
+
+.vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-gris);
+  padding: 24px;
+}
